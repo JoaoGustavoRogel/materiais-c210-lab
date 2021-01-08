@@ -41,3 +41,7 @@ class DIABETES:
 class TIC_TAC_TOE_ENDGAME:
     input = DataSets.add_bias(DataSets.read('tic-tac-toe-endgame', 'input.txt'))
     output = DataSets.read('tic-tac-toe-endgame', 'output.txt')
+
+class TESTE:
+    input = DataSets.add_bias(DataSets.read('teste', 'input.txt'))
+    output = DataSets.read('teste', 'output.txt')

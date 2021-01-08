@@ -29,10 +29,10 @@ class Perceptron:
 
                 if y != d[i]:
                     error = True
-                    w = np.add(w, np.multiply(self.n * (d[i] - y), x[i])) # <3
+                    w = np.add(w, np.multiply(self.n * (d[i] - y), x[i]))
 
             epoch += 1
-            #print(f"Epoch: {epoch}\tWeights: {w}")
+
             self.plot_data_x.append(epoch)
             self.plot_data_y.append(1 if error else 0)
 
@@ -62,11 +62,11 @@ if __name__ == "__main__":
     np.set_printoptions(formatter={"float": "{: 0.6f}".format})
 
     # Load data
-    x = DataSets.LOGIC_GATE_XOR.input
-    d = DataSets.LOGIC_GATE_XOR.output
+    x = DataSets.TESTE.input
+    d = DataSets.TESTE.output
 
     # Seting parameters
-    n = 1
+    n = 0.1
     g = ActivationFunctions.heaviside
 
     # Creating Neural Network
@@ -79,13 +79,4 @@ if __name__ == "__main__":
     acc = nn.evaluate(w, x, d)
 
     # Ploting
-    #PlotUtils.plot(nn.plot_data_x, "epoch", nn.plot_data_y, "error")
-
-    while 42:
-        x1 = int(input("Digite um valor: "))
-        x2 = int(input("Digite outro valor: "))
-
-        x_nn = [-1, x1, x2]
-        y_nn = nn.test(w, x_nn)
-
-        print(f"{x1} XOR {x2} = {y_nn}")
+    PlotUtils.plot(nn.plot_data_x, "epoch", nn.plot_data_y, "error")
